@@ -1,0 +1,18 @@
+﻿@model List<WebBanHang.Models.CartItem>
+<div class="cart">
+    <p>
+        Chào mừng đến với website <span> <a href="/Cart">Giỏ hàng:</a> </span> <div id="dd" class="fa fa-cart-arrow-down">
+        @Model.Count() sản phẩm - @((Model.Sum(x=>x.Product.Price)).ToString() + " VND")
+        </div>
+        <ul class="dropdown">
+            <li></li>
+        </ul>
+    </p>
+</div>
+@*<div class="cart">
+        <form action="#" method="post" class="last">
+            <input type="hidden" name="cmd" value="_cart" />
+            <input type="hidden" name="display" value="1" />
+            <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+        </form>
+    </div>*@

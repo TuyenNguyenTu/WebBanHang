@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "FeaturedProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var featuredProducts = (List<Model.EntityF.Product>)ViewBag.FeaturedProducts;
+}
+
+<div class="products">
+
+    <div class="container">
+        <h3>Danh sách sản phẩm nổi bật</h3>
+        <div class="col-md-9 product-w3ls-right">
+
+        </div>
+        <div class="clearfix"></div>
+
+
+        @foreach (var item in featuredProducts)
+        {
+
+            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+            <div style=" width:auto; width:auto;">
+                <div class="col-md-3 product-grids">
+                    <div class="agile-products" style="width:255px; height:400px;">
+                        <div class="new-tag"><h6>New</h6></div>
+                        <a href="@url"><img src="@item.Image" class="img-responsive" alt="@item.Name" width="180" height="300"></a>
+                        <div class="agile-product-text">
+                            <h5><a href="single.html">@item.Name</a></h5>
+                            <h6>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")</h6>
+                            @*<form action="#" method="post">
+                            <input type="hidden" name="cmd" value="_cart" />
+                            <input type="hidden" name="add" value="1" />
+                            <input type="hidden" name="w3ls_item" value="@item.Name" />
+                            <input type="hidden" name="amount" value="@item.Price" />
+                            <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Thêm vào giỏ</button>
+                             </form>*@
+                        </div>
+                        <br />
+                        <div><a href="/them-gio-hang?productID=@item.ID&quantity=1" class="w3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Thêm giỏ hàng</a></div>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+
+</div>
+
+
